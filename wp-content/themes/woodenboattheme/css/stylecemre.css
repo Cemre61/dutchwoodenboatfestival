@@ -1,4 +1,27 @@
-body{
-	padding: 0;
-	margin:0;
+main h1 {
+	margin-left: 120px;
+}
+
+/*** Contact Form ***/
+
+#wpforms-13 {
+	width: 25%;
+	margin-left: 120px;
+}
+
+.wbf-form {
+	width: 50%;
+}
+
+div.wpforms-container-full .wpforms-form input.wpforms-field-medium, div.wpforms-container-full .wpforms-form select.wpforms-field-medium, div.wpforms-container-full .wpforms-form .wpforms-field-row.wpforms-field-medium {
+    max-width: 100%;
+}
+
+div.wpforms-container-full .wpforms-form button[type=submit] {
+    background-color: #50684A;
+    border: solid 1px #50684A;
+    color: #fff;
+    float: right;
+		font-weight: bold;
+		padding: 10px 30px;
 }
