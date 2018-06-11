@@ -7,9 +7,7 @@
 					<h1><?php the_field('header_text'); ?></h1>
 				</div>
 			</div>
-			<div class="crumb_cont">
-				<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
-			</div>
+			
 
 		<section class="template_section">
 

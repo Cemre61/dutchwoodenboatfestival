@@ -6,10 +6,9 @@
     width: 100%;
     padding-top: 100%;
     float: left;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-		box-shadow: 0 2px 5px 0 #000;
 	}
 	.template_container_1_4_r{
 		overflow: auto;
@@ -25,9 +24,7 @@
 				<h1><?php the_field('header_text'); ?></h1>
 			</div>
 		</div>
-		<div class="crumb_cont">
-			<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
-		</div>
+
 
 		<section class="template_section">
 			<div class="template_container_1">
@@ -53,7 +50,7 @@
 								else {
 									echo 'template_container_1_4_l';
 								}?>">
-								<div class="custompage_images" id=<?php echo $image['ID']?> style='background-image:url("<?php echo $image['url']?>")' >
+								<div class="custompage_images canprevieuw" id=<?php echo $image['ID']?> style='background-image:url("<?php echo $image['url']?>")' >
                 </div>
 								</div>
 								<?php $number ++; ?>

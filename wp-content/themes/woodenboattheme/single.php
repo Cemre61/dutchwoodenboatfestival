@@ -1,5 +1,49 @@
 <?php get_header(); ?>
 
+<style media="screen">
+	.submit{
+		clear:both;
+		float: left;
+		position: relative;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		color: #d8d5d8;
+		background-color: #4f6949;
+		border: none;
+		padding: 1em 1em 1em 1em;
+		font-weight: bold;
+		font-size: 1em;
+		border-radius: 0;
+		transition: .3s;
+		border: 1px solid transparent;
+		margin-top: calc(15px / 2);
+		margin-bottom: calc(15px / 2);
+	}
+	.submit:hover{
+		background-color: #87a57f;
+	}
+	.pageButtons a{
+		font-weight: bold;
+		text-decoration: none;
+		color: #376192;
+	}
+	.buttons{
+		padding-top: 50px;
+		padding-bottom: 40px;
+		max-width: 700px;
+	}
+	.previous-button{
+		float: left;
+	}
+	.next-button{
+		float: right;
+	}
+	p{
+		max-width: 700px;
+	}
+</style>
+
 	<main role="main">
 	<!-- section -->
 
@@ -7,9 +51,6 @@
 		<div class="template_image_header_cont">
 			<h1><?php the_field('header_text'); ?></h1>
 		</div>
-	</div>
-	<div class="crumb_cont">
-		<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
 	</div>
 
 	<section class="template_section">
@@ -26,34 +67,25 @@
 				</a>
 			<?php endif; ?>
 			<!-- /post thumbnail -->
-
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
-
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
+			<span class="date"> Gepubliceerd op: <?php the_time('j F Y'); ?>, <?php the_time('G:i '); ?></span>
+			<br>
 
 			<?php the_content(); // Dynamic Content ?>
 
 			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
 
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
 
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
+			<!-- post details -->
+			<span class="author">Dit bericht werd geplaatst door:  <?php the_author(); ?> </span>
 
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
-			<?php comments_template(); ?>
-
 		</article>
 		<!-- /article -->
-
+		<div class="buttons">
+		  <span class=" pageButtons previous-button"><?php previous_post_link( '%link', '<i class="fas fa-chevron-circle-left"></i> Vorige') ?></span>
+		  <span class=" pageButtons next-button"><?php next_post_link( '%link', 'Volgende <i class="fas fa-chevron-circle-right"></i>'); ?></span>
+		</div>
 	<?php endwhile; ?>
 
 	<?php else: ?>

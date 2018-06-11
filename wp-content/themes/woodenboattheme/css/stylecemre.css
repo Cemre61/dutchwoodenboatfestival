@@ -194,7 +194,7 @@ div.wpforms-container-full .wpforms-form textarea.wpforms-field-large {
 	}
 	.socialmedia {
 		width: 285px;
-		margin: 0 auto;
+		margin: 15px auto;
 	}
 	.socialmedia img {
 		margin: 0 15px;
@@ -217,26 +217,7 @@ div.wpforms-container-full .wpforms-form textarea.wpforms-field-large {
 		margin-left: 15px;
 	}
 }
-@media screen and (min-width: 768px) and (max-width: 992px) {
-	.header nav .logo {
-		margin: 15px auto 0;
-		text-align: center;
-		float: inherit;
-	}
-	.nav ul {
-		float: inherit;
-	}
-	.nav ul li {
-		display: inline-block;
-	}
-	.header nav li {
-		float: inherit;
-	}
-	.header nav .menu {
-		text-align: center;
-		float: inherit;
-	}
-}
+
 @media screen and (min-width: 992px) {
 	.contact-block--right p {
 		width: 400px;

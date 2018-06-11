@@ -39,16 +39,18 @@
 				<nav class="nav" role="navigation">
 					<a class="logo" href="<?php echo home_url(); ?>">
 						<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo" class="logo-img">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/header-logo.png" alt="Logo" class="logo-img">
 					</a>
+					<div class="nav-center-border"></div>
 					<input class="menu-btn" type="checkbox" id="menu-btn" />
 					<label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 					<ul class="menu">
 						<?php nav_left(); ?>
 					</ul>
-					<div class="nav-circle"></div>
-				</nav>
 
+				</nav>
+				<div class="nav-circle"></div>
+				<div class="nav-circle-border"></div>
 
 				<!-- /nav -->
 
@@ -58,5 +60,19 @@
 </div>
 </a> -->
 			</header>
+			<div class="fullscreenbg">
+			</div>
+			<div id="fullscreen-image" >
+				<div id="closeFullscreen">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/close-button.png" alt="close" class="close-button">
+				</div>
+				
+					<div id="fullscreenimage_left">
+<img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png" alt="arrow" class="arrowl">
+					</div>
+					<div id="fullscreenimage_right">
+<img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png" alt="arrow" class="arrowr">
+					</div>
 
+			</div>
 			<!-- /header -->

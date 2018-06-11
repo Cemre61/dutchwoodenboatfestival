@@ -1,12 +1,72 @@
 <?php get_header(); ?>
+<style media="screen">
+	.postcontainers{
+		overflow: hidden;
+	}
+	.post_image_containers{
+		height: 200px;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	span{
+		display: none;
+	}
+	.posts_images{
+		border-radius: 5px;
+		width: 100% !important;
+		height: 100% !important;
+		background-position: center center !important;
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
+	}
+	.post_text_containers{
+		height: 200px;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	.template_button_orange{
+		margin-bottom: 0;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
+	.Posts_fabook_container{
+		border-radius: 5px;
+	}
+	h2{
+		margin-top: 0;
+	}
+	.template_breakline{
+		display: block;
+	}
+	@media screen and (max-width: 800px){
+		.template_breakline{
+			display: block;
+		}
+		h2{
+			margin-top: 0.83em;
+		}
+	}
+	@media screen and (max-width: 700px){
+		.Posts_fabook_container{
+			display: none;
+		}
+	}
 
+</style>
 	<main role="main">
 		<!-- section -->
 		<section>
-
+			<div class="template_image_header" style='background: url("<?php the_field('header_image'); ?>");'>
+				<div class="template_image_header_cont">
+					<h1><?php _e( 'posts voor', 'html5blank' ); echo get_the_author(); ?></h1>
+				</div>
+			</div>
+			<div class="crumb_cont">
+				<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
+			</div>
+			<section  class="template_section">
 		<?php if (have_posts()): the_post(); ?>
-
-			<h1><?php _e( 'Author Archives for ', 'html5blank' ); echo get_the_author(); ?></h1>
 
 		<?php if ( get_the_author_meta('description')) : ?>
 
@@ -21,35 +81,18 @@
 		<?php rewind_posts(); while (have_posts()) : the_post(); ?>
 
 			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-				<!-- post thumbnail -->
-				<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-						<?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
-					</a>
-				<?php endif; ?>
-				<!-- /post thumbnail -->
-
-				<!-- post title -->
-				<h2>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-				</h2>
-				<!-- /Post title -->
-
-				<!-- post details -->
-				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-				<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-				<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-				<!-- /post details -->
-
-				<?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
-
-				<br class="clear">
-
-				<?php edit_post_link(); ?>
-
-			</article>
+			<div class="template_container_1 postcontainers">
+				<div class="template_container_1_2_l post_image_containers">
+					<div class="posts_images" style='background: url("<?php the_field('header_image'); ?>");'>
+					</div>
+				</div>
+				<div class="template_container_1_2_r post_text_containers">
+					<h2><?php the_title(); ?></h2>
+					<?php the_content(); ?>
+					<a href="<?php the_permalink(); ?>"><button class="template_button_orange template_button_right" type="button" name="button">Bekijk Meer</button></a>
+				</div>
+				<div class="template_breakline"></div>
+			</div>
 			<!-- /article -->
 
 		<?php endwhile; ?>

@@ -1,0 +1,25 @@
+.home_gallery .button{
+    border-radius: 5px !important;
+	position: absolute;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #b27e59 !important;
+	border: solid 1px #b27e59 !important;
+	color: #fff;
+	float: right;
+	font-weight: bold;
+	padding: 10px 30px;
+	font-size: 1em;
+	cursor: pointer;
+}
+
+.home_gallery .button:hover{
+	background-color: #d99a6f !important;
+	border: solid 1px #d99a6f !important;
+}
+.button_news2{
+  margin-top: 50px;
+}

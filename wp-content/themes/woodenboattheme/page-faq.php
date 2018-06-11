@@ -7,9 +7,7 @@
 			<h1><?php the_field('header_text'); ?></h1>
 		</div>
 	</div>
-	<div class="crumb_cont">
-		<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
-	</div>
+
   <!-- Made by Kevin -->
 	<section class="container_k">
     <div class="content_k">
@@ -32,7 +30,7 @@
 			</div>
 
 					<div class="contentpart2">
-						<h3>Toegangkelijkheid</h3>
+						<h3>Toegankelijkheid</h3>
 						<div class="questions">
 							<?php if( have_rows('faq_list') ): ?>
 								<?php while( have_rows('faq_list') ): the_row();

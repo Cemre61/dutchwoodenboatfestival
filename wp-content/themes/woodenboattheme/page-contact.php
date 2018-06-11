@@ -12,9 +12,7 @@
 			<h1><?php the_field('header_text'); ?></h1>
 		</div>
 	</div>
-	<div class="crumb_cont">
-		<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
-	</div>
+
 
 	<section class="template_section">
 		<div class="contact-block--right">
@@ -33,7 +31,6 @@
 			<strong>Wij zijn ook te vinden op:</strong>
 			<div class="socialmedia">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/facebook.png" alt="Facebook logo" title="Volg ons op Facebook">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/twitter.png" alt="Twitter logo" title="Volg ons op Twitter">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="linkedin logo" title="Volg ons op Linkedin">
 			</div>
 		</div>
