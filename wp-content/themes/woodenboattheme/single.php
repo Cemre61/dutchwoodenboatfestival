@@ -2,7 +2,17 @@
 
 	<main role="main">
 	<!-- section -->
-	<section>
+
+	<div class="template_image_header" style='background: url("<?php the_field('header_image'); ?>");'>
+		<div class="template_image_header_cont">
+			<h1><?php the_field('header_text'); ?></h1>
+		</div>
+	</div>
+	<div class="crumb_cont">
+		<?php if ( function_exists( 'bread_crumb' ) ) { bread_crumb(); } ?>
+	</div>
+
+	<section class="template_section">
 
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 

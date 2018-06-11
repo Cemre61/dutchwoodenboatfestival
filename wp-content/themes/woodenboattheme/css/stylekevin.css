@@ -1,0 +1,62 @@
+/* The style of Kevin */
+.container_k {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.content_k {
+  overflow: auto;
+  margin-bottom: 15px;
+}
+.container_k .contentpart1{
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+.container_k .contentpart2{
+  position: relative;
+  width: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+.content_k .question_k{
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  color: #2d2d2d;
+}
+.plus{
+  float: right;
+}
+.content_k .questions{
+  position: relative;
+  float: right;
+  right: 15px;
+  width: 45%;
+}
+.content_k h3{
+  position: relative;
+  float: left;
+  left: 15px;
+  top: 0;
+  margin:0;
+  padding-top:5px;
+  border-top: 1px solid black;
+}
+
+.anwser_k {
+  display: none;
+  color: #2d2d2d;
+}
+
+.question_k.clicked .anwser_k {
+  display: block;
+}
+
+.question_k.clicked {
+  color: #50684a;
+}
