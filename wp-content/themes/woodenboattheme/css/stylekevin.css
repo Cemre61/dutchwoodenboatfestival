@@ -1,65 +1,68 @@
 /* The style of Kevin */
 .container_k {
-  padding-top: 50px;
-  width: 100%;
-  max-width: 1000px;
-  min-height: calc(100vh - 450px);
-  margin: 0 auto;
+	padding-top: 50px;
+	width: 100%;
+	max-width: 1000px;
+	min-height: calc(100vh - 440px);
+	margin: 0 auto;
 }
 
 .content_k {
-  overflow: auto;
-  margin-bottom: 15px;
+	overflow: auto;
+	margin-bottom: 15px;
 }
-
+.contentpart1 h3, .contentpart2 h3 {
+	cursor: default;
+}
 .container_k .contentpart1{
-  position: relative;
-  width: 100%;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
+	position: relative;
+	width: 100%;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
 }
 .container_k .contentpart2{
-  position: relative;
-  width: 100%;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
+	position: relative;
+	width: 100%;
+	overflow: auto;
+	margin: 0;
+	padding: 0;
 }
 .content_k .question_k{
-  margin-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid black;
-  color: #2d2d2d;
+	margin-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid lightgray;
+	color: #2d2d2d;
+	cursor: pointer;
 }
 .plus{
-  float: right;
+	float: right;
 }
 .content_k .questions{
-  position: relative;
-  float: right;
-  right: 15px;
-  width: 45%;
+	position: relative;
+	float: right;
+	right: 15px;
+	width: 45%;
 }
 .content_k h3{
-  position: relative;
-  float: left;
-  left: 15px;
-  top: 0;
-  margin:0;
-  padding-top:5px;
-  border-top: 1px solid black;
+	position: relative;
+	float: left;
+	left: 15px;
+	top: 0;
+	margin:0;
+	padding-top:5px;
+	border-top: 1px solid lightgray;
 }
 
 .anwser_k {
-  display: none;
-  color: #2d2d2d;
+	display: none;
+	color: #2d2d2d;
 }
 
 .question_k.clicked .anwser_k {
-  display: block;
+	display: block;
 }
 
 .question_k.clicked {
-  color: #50684a;
+	color: #50684a;
 }

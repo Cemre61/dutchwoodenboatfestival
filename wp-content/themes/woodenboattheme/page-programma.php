@@ -1,5 +1,43 @@
 <?php get_header(); ?>
 
+<style media="screen">
+	.table-day {
+		margin-bottom: 35px;
+	}
+	.title_planning {
+		padding: 10px 30px;
+		position: relative;
+		color: white;
+		text-align: center;
+		margin-bottom: 0;
+		width: 100px;
+		float: left;
+		margin-top: 0;
+	}
+	.template_image_header {
+		margin-bottom: 35px;
+	}
+	.title_container{
+		width: 750px;
+		margin: 0 auto;
+		overflow: auto;
+		border-spacing: 0;
+		background-color: #1D374C;
+	}
+	.date{
+		position: relative;
+		float: left;
+	}
+	@media screen and (max-width: 767px){
+		.title_planning:first-child {
+			width: 64px;
+			padding: 10px 14px;
+		}
+		.title_container{
+			width: 100%;
+		}
+	}
+</style>
 
 <main role="main">
 	<!-- section -->
@@ -8,13 +46,14 @@
 			<h1><?php the_field('header_text'); ?></h1>
 		</div>
 	</div>
-	
+
 	<section>
 		<div class="block-planning">
-
-			<h2>Dag 1</h2>
+			<div class="title_container">
+				<h2 class="title_planning">Dag 1</h2>
+				<h2 class="title_planning"><?php the_field('planning_datum_1'); ?></h2>
+			</div>
 			<table class="table-day">
-
 				<?php if ( have_rows('planning_dag_1') ):
 
 				while ( have_rows('planning_dag_1') ) : the_row(); ?>
@@ -32,13 +71,15 @@
 
 			</table>
 
-			<h2>Dag 2</h2>
+			<div class="title_container">
+				<h2 class="title_planning">Dag 2</h2>
+				<h2 class="title_planning"><?php the_field('planning_datum_2'); ?></h2>
+			</div>
 			<table class="table-day">
-
 
 				<?php if( have_rows('planning_dag_2') ):
 
-					while ( have_rows('planning_dag_2') ): the_row(); ?>
+				while ( have_rows('planning_dag_2') ): the_row(); ?>
 
 				<thead>
 					<tr>
@@ -50,7 +91,7 @@
 
 				<?php endwhile;
 
-					endif; ?>
+				endif; ?>
 			</table>
 		</div>
 		<?php if (have_posts()): while (have_posts()) : the_post(); ?>

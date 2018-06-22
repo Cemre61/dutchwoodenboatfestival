@@ -1,5 +1,12 @@
 <?php get_header(); ?>
-
+<style media="screen">
+	.footer{
+		margin-top: 20px;
+	}
+	.template_section{
+		overflow: auto;
+	}
+</style>
 	<main role="main">
 		<!-- section -->
 			<div class="template_image_header" style='background: url("<?php the_field('header_image'); ?>");'>
@@ -7,7 +14,7 @@
 					<h1><?php the_field('header_text'); ?></h1>
 				</div>
 			</div>
-			
+
 
 		<section class="template_section">
 

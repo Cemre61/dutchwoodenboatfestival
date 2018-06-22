@@ -60,14 +60,19 @@
 <?php get_sidebar(); ?>
 
 <script>
-		var template_container_1_2_l = document.getElementById('lipsum');
+		var template_container_1_2_l = document.getElementsByClassName('template_container_1_2_l')[0];
 		var template_container_1_2_r = document.getElementsByClassName('template_container_1_2_r')[0];
 
-if (template_container_1_2_l.firstChild.nextSibling.tagName == "P") {
-	template_container_1_2_l.firstChild.nextSibling.style.paddingTop = "43px";
+if (template_container_1_2_r.firstChild.nextSibling.tagName == "H2") {
+	if (template_container_1_2_l.firstChild.nextSibling.tagName == "P") {
+		template_container_1_2_l.firstChild.nextSibling.style.paddingTop = "55px";
+	}
 }
-if (template_container_1_2_r.firstChild.nextSibling.tagName == "P") {
-	template_container_1_2_r.firstChild.nextSibling.style.paddingTop = "43px";
+
+if (template_container_1_2_l.firstChild.nextSibling.tagName == "H2") {
+	if (template_container_1_2_r.firstChild.nextSibling.tagName == "P") {
+		template_container_1_2_r.firstChild.nextSibling.style.paddingTop = "55px";
+	}
 }
 </script>
 

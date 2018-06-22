@@ -10,7 +10,15 @@
 
 })(jQuery, this);
 
+
 jQuery(document).ready(function(){
+	//jQuery( ".menu-item" ).has( "ul" ).append( '<i class="fas fa-caret-down open-dropdown"></i>' );
+	//
+	jQuery('<i class="fas fa-caret-down open-dropdown"></i>').insertBefore('ul.sub-menu');
+
+	jQuery('.menu-icon').on("click", function(){
+		jQuery('.menu .menu-item').toggleClass("show-grid");
+	});
 	jQuery('.btn-trailer').hover(function(){
 		jQuery('.btn-trailer .fa-play').show(250);
 		jQuery('.btn-trailer span').hide();
@@ -20,16 +28,15 @@ jQuery(document).ready(function(){
 		jQuery('.btn-trailer span').show(300);
 		jQuery('.btn-trailer span').css({"transition": "all .3s ease"});
 	});
-
-	if (jQuery(window).width() <= 767) {
-		jQuery('.menu li.has-children').on("click", function() {
-			jQuery('ul.sub-menu', this).css({"display" : "grid"});
-		}, function() {
-			jQuery('ul.sub-menu', this).css({"display" : "none"});
+	if (jQuery(window).width() <= 1159) {
+		jQuery('.menu li').live("click","i.open-dropdown", function() {
+			jQuery('ul.sub-menu', this).toggleClass("show-grid");
+			jQuery('i.open-dropdown', this).toggleClass("fa-caret-down");
+			jQuery('i.open-dropdown', this).toggleClass("fa-caret-up");
 		});
 	} else {
 		jQuery('.menu li.has-children').hover(function() {
-			jQuery('ul.sub-menu', this).css({"display" : "grid"});
+			jQuery('ul.sub-menu', this).css({"display" : "table"});
 		}, function() {
 			jQuery('ul.sub-menu', this).css({"display" : "none"});
 		});
@@ -73,24 +80,27 @@ jQuery(document).ready(function(){
 			fullscreen.style.backgroundImage = images[currentImage].style.backgroundImage
 		});
 		function checkButtons() {
-			if (currentImage == 0) {
+			if (arr.length == 1) {
+				console.log("het is er maar een");
 				fullscreenimage_left.style.display = "none";
-			}
-			else if (currentImage == arr.length-1) {
 				fullscreenimage_right.style.display = "none";
 			}
 			else {
-				fullscreenimage_left.style.display = "block";
-				fullscreenimage_right.style.display = "block";
+				if (currentImage == 0) {
+					fullscreenimage_left.style.display = "none";
+					fullscreenimage_right.style.display = "block";
+				}
+				else if (currentImage == arr.length-1) {
+					fullscreenimage_right.style.display = "none";
+					fullscreenimage_left.style.display = "block";
+				}
+				else {
+					fullscreenimage_left.style.display = "block";
+					fullscreenimage_right.style.display = "block";
+				}
 			}
 		}
 	}
-
-
-
-
-
-
 	closeFullscreen.addEventListener("click",function() {
 		TweenMax.set(fullscreen, {scale:0, display:"none", opacity:0});
 		TweenMax.set(fullscreenbg, {opacity:0});

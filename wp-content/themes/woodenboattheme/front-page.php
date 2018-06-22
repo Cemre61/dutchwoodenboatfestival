@@ -1,12 +1,16 @@
 <?php get_header(); ?>
+
 <style media="screen">
-.slider_overlay{
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	opacity: 0.3;
-	background-color: black;
-}
+	.slider_overlay{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 0.3;
+		background-color: black;
+	}
+	.template_section{
+		min-height: inherit;
+	}
 	.post_image_containers{
 		height: 200px;
 		margin-top: auto;
@@ -42,7 +46,51 @@
 		.underNewsBreakline{
 			display: none;
 		}
+		.video-overlay > video.has-media-controls-hidden::-webkit-media-controls {
+			display: inherit;
+		}
 	}
+
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		/* IE10+ CSS styles go here */
+		.current-menu-item {
+			background: url(../img/golfje.svg) no-repeat center 34px;
+		}
+		.video-overlay-play-button, .video-overlay-play-button:hover {
+			opacity: 0;
+			visibility: hidden;
+			display: none;
+		}
+		.header_bottom_bg {
+			height: 367px;
+		}
+	}
+
+	@supports (-ms-ime-align: auto) {
+		/* IE Edge  CSS styles go here */
+		.video-overlay-play-button, .video-overlay-play-button:hover {
+			opacity: 0;
+			visibility: hidden;
+			display: none;
+		}
+	}
+
+	@-moz-document url-prefix() {
+		/* Firefox CSS styles go here */
+		.video-overlay-play-button, .video-overlay-play-button:hover {
+			opacity: 0;
+			visibility: hidden;
+			display: none;
+		}
+	}
+
+	/* Safari 7.1+ CSS styles go here */
+	_::-webkit-full-page-media, _:future, :root .video-overlay-play-button, .video-overlay-play-button:hover {
+		opacity: 0;
+		visibility: hidden;
+		display: none;
+	}
+
 </style>
 <main role="main">
 	<!-- section -->
@@ -58,10 +106,10 @@
 		</div>
 		<div class="header-bg">
 			<div class="header_cont">
-				<h1><?php the_field('title'); ?></h1>
-				<p>13/05/2019, NDSM WERF</p>
+				<h1><?php the_field('header_title'); ?></h1>
+				<p><?php the_field('header_text'); ?></p>
 				<a class="header-btn btn-trailer" href="#"><span>Bekijk de trailer</span><i class="fas fa-play"></i></a>
-				<a class="header-btn btn-meld-je-aan" target="_blank" href="https://www.facebook.com/Dutch-WoodenBoat-Festival-145754096181287/?hc_ref=ARRV4jLdIqpEu1WatobltYwi457FPXJlNu8id3ZY0fT8kJTjHBafGA4ApVPnXeStjzg" >Meld je aan! <i class="fas fa-chevron-right"></i></a>
+				<a class="header-btn btn-meld-je-aan" target="_blank" href="<?php the_field('meldjeaan'); ?>" >Meld je aan! <i class="fas fa-chevron-right"></i></a>
 			</div>
 		</div>
 		<div class="header_bottom_bg">
@@ -95,9 +143,9 @@
 
 				<div class="video_section">
 					<div class="video-overlay">
-						<video class="video" id="video" controls="controls" poster="<?php the_field('video-image'); ?>">
+						<video class="video" id="video" controls="controls">
 							<i class="fas fa-play"></i>
-							<source src="<?php the_field('video'); ?>" type="video/mp4">
+							<source src="<?php the_field('video'); ?>#t=1" type="video/mp4">
 						</video>
 					</div>
 				</div>
@@ -105,11 +153,9 @@
 			</div>
 
 			<div class="template_container_1_3_r">
-				<div class="home_text_flex">
-					<div class="home_text">
-						<h2><?php the_field('title'); ?></h2>
-						<?php the_field('text'); ?>
-					</div>
+				<div class="home_text">
+					<h2><?php the_field('title'); ?></h2>
+					<?php the_field('text'); ?>
 				</div>
 			</div>
 			<div class="template_breakline"></div>
@@ -117,7 +163,7 @@
 
 		<section class="template_section nieuwsContainer">
 			<!-- <div class="news_posts"> -->
-				<h2 class="template_txt_center">Nieuws</h2>
+			<h2 class="template_txt_center">Nieuws</h2>
 			<!-- </div> -->
 			<?php
 			// the query
@@ -145,7 +191,7 @@
 					</div>
 					<a href="<?php the_permalink(); ?>"><button class="template_button_orange button_news" type="button" name="button">Lees verder <i class="fas fa-chevron-right"></i></button></a>
 				</div>
-							<div class="template_breakline news_breakline"></div>
+				<div class="template_breakline news_breakline"></div>
 			</div>
 			<!-- <div class="template_container_1"> -->
 			<!-- </div> -->
@@ -165,32 +211,32 @@
 
 
 		<!-- <div class="gallery_bg"></div> -->
-			<div class="home_gallery">
-				<?php
-				$images = get_field('gallery');
-				$size = 'full'; // (thumbnail, medium, large, full or custom size)
-				$i = 0;
-				if( $images ): ?>
-				<?php foreach( $images as $image ): ?>
-				<?php $i += 1 ?>
-				<div class="image_cont" id="cont<?php echo $i ?>">
-					<div class="imageholder canprevieuw" style='background-image:url("<?php echo $image['url']?>")'>
-					</div>
+		<div class="home_gallery">
+			<?php
+			$images = get_field('gallery');
+			$size = 'full'; // (thumbnail, medium, large, full or custom size)
+			$i = 0;
+			if( $images ): ?>
+			<?php foreach( $images as $image ): ?>
+			<?php $i += 1 ?>
+			<div class="image_cont" id="cont<?php echo $i ?>">
+				<div class="imageholder canprevieuw" style='background-image:url("<?php echo $image['url']?>")'>
 				</div>
-				<?php endforeach; ?>
-				<?php endif; ?>
-
-				<div class="arrow arrow_left" id="arrow_left">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png" alt="arrow" class="arrowl">
-				</div>
-				<div class="arrow arrow_right" id="arrow_right">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png" alt="arrow" class="arrowr">
-				</div>
-
-				<form action="gallerij">
-					<input type="submit" class="button" value="Bekijk alle afbeeldingen" />
-				</form>
 			</div>
+			<?php endforeach; ?>
+			<?php endif; ?>
+
+			<div class="arrow arrow_left" id="arrow_left">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png" alt="arrow" class="arrowl">
+			</div>
+			<div class="arrow arrow_right" id="arrow_right">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png" alt="arrow" class="arrowr">
+			</div>
+
+			<form action="gallerij">
+				<input type="submit" class="button" value="Bekijk alle afbeeldingen" />
+			</form>
+		</div>
 	</section>
 	<!-- /section -->
 </main>
@@ -522,11 +568,10 @@
 			heaterTl.set(bg_slider_image4, {left:"100%"},animationtime2 * 5);
 
 			window.addEventListener("scroll", function() {
-				console.log(scrollY);
-				if (scrollY < 850) {
+				if (document.documentElement.scrollTop < 850) {
 					heaterTl.play();
 				}
-				else if(scrollY > 850) {
+				else if(document.documentElement.scrollTop > 850) {
 					heaterTl.pause();
 				}
 			});

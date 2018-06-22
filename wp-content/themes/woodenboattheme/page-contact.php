@@ -13,48 +13,87 @@
 		</div>
 	</div>
 
-
 	<section class="template_section">
+		<div class="template_container_1">
+			<div class="contact-block">
+				<p><?php the_field('contact_text'); ?></p>
+			</div>
+		</div>
+
 		<div class="contact-block--right">
-			<h2><?php the_field('contact_title'); ?></h2>
-			<p><?php the_field('contact_text'); ?></p>
+			<h2>Neem contact op via</h2>
 			<div class="block-right-icons">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/telefoon-icon.png" alt="tel icon"><p><?php the_field('contact_number'); ?></p>
+				<a href="tel:<?php the_field('contact_number'); ?>"><i class="fas fa-mobile-alt"></i><?php the_field('contact_number'); ?></a>
 			</div>
 			<div class="block-right-icons">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/email-icon.png" alt="email icon"><p><?php the_field('contact_email'); ?></p>
+				<a href="mailto:<?php the_field('contact_email'); ?>"><i class="fas fa-envelope"></i><?php the_field('contact_email'); ?></a>
 			</div>
-			<div class="block-right-icons">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/locatie-icon.png" alt="locatie icon"><p><?php the_field('contact_adres'); ?><p>
-			</div>
-
-			<strong>Wij zijn ook te vinden op:</strong>
-			<div class="socialmedia">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/facebook.png" alt="Facebook logo" title="Volg ons op Facebook">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/linkedin.png" alt="linkedin logo" title="Volg ons op Linkedin">
+			<div class="block-right-icons map">
+				<a href="#wpgmza_map"><i class="fas fa-map-marker-alt"></i><?php the_field('contact_adres'); ?></a>
 			</div>
 		</div>
-		<div class="contact-block">
+		
+		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+		<!-- article -->
 
-			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
-			<!-- article -->
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<?php the_content(); ?>
+			<?php comments_template( '', true ); // Remove if you don't want comments ?>
+			<br class="clear">
+		</article>
+		<!-- /article -->
+		<?php endwhile; ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<?php the_content(); ?>
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
-				<br class="clear">
-			</article>
-			<!-- /article -->
-			<?php endwhile; ?>
-
-			<?php else: ?>
-			<!-- article -->
-			<!-- /article -->
-			<?php endif; ?>
-		</div>
+		<?php else: ?>
+		<!-- article -->
+		<!-- /article -->
+		<?php endif; ?>
 	</section>
 	<!-- /section -->
+	<?php echo do_shortcode("[wpgmza id='1']"); ?>
 </main>
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		// Select all links with hashes
+		jQuery('a[href*="#"]')
+		// Remove links that don't actually link to anything
+			.not('[href="#"]')
+			.not('[href="#0"]')
+			.click(function(event) {
+			// On-page links
+			if (
+				location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+				&&
+				location.hostname == this.hostname
+			) {
+				// Figure out element to scroll to
+				var target = jQuery(this.hash);
+				target = target.length ? target : jQuery('[name=' + this.hash.slice(1) + ']');
+				// Does a scroll target exist?
+				if (target.length) {
+					// Only prevent default if animation is actually gonna happen
+					event.preventDefault();
+					jQuery('html, body').animate({
+						scrollTop: target.offset().top
+					}, 1000, function() {
+						// Callback after animation
+						// Must change focus!
+						var $target = jQuery(target);
+						$target.focus();
+						if ($target.is(":focus")) { // Checking if the target was focused
+							return false;
+						} else {
+							$target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+							$target.focus(); // Set focus again
+						};
+					});
+				}
+			}
+		});
+	});
+
+</script>
 
 <?php get_sidebar(); ?>
 

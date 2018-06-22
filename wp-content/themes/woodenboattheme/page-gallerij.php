@@ -9,7 +9,6 @@
 	.gallery_video{
 		min-width: 100%;
 		min-height: 100%;
-		width: 0px;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -62,7 +61,7 @@
 						if ($file_parts['extension'] == "mp4"):?>
 						<div class="images video_image">
 							<video class="gallery_video">
-							  <source src="<?php echo $image['url']?>" type="video/mp4">
+							  <source src="<?php echo $image['url']?>#t=2" type="video/mp4">
 							</video>
 							<svg id="svg-overlay" class="video-overlay-button" viewBox="0 0 200 200" alt="Play video">\
 							<circle cx="100" cy="100" r="90" fill="none" stroke-width="15" stroke="#fff"/>\

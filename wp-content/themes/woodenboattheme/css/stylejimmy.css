@@ -16,7 +16,7 @@
 	overflow: hidden;
 	position: relative;
 	width: calc(20% - 16px);
-	padding-top:20%;
+	padding-top:calc(20% - 16px);
 	margin: 8px;
 	float: left;
 	background-size: cover;
@@ -81,7 +81,7 @@
 @media only screen and (max-width: 700px) {
 	.imagecontainer .images{
 		width: calc(25% - 16px);
-		padding-top:25%;
+		padding-top:calc(25% - 16px);
 	}
 }
 /* END STYLE GALLERY PAGE------------------------------------------------------- */

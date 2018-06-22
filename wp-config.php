@@ -20,6 +20,8 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
+define('WP_HOME', 'https://dutchwoodenboatfestival.nl/');
+define('WP_SITEURL', 'https://dutchwoodenboatfestival.nl/');
 define('DB_NAME', 'DB3343587');
 
 /** MySQL database username */
